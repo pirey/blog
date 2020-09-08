@@ -98,7 +98,7 @@ Each variable is a list containing hex value and their respective value for term
       />
   </a>
     </span></p>
-<p>I like the statusline to display full path (relative path) for current file, but when using split the space limited, so I adjust the filename to only show the filename. Moreover, I set the lineinfo and filetype component to “dissapear” on specific window width.</p>
+<p>I like the statusline to display full path (relative path) for current file, but when using split the space is limited, so I adjust the filename to only show the filename. Moreover, I set the lineinfo and filetype component to “dissapear” on specific window width.</p>
 <p>The way to do that is by using custom component and bind it to a function we define. For example, this is how I setup the lineinfo component.</p>
 <div class="gatsby-highlight" data-language="vim"><pre class="language-vim"><code class="language-vim"><span class="token keyword">let</span> g<span class="token punctuation">:</span>lightline<span class="token operator">.</span>component_function <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">'lineinfo'</span><span class="token punctuation">:</span> <span class="token string">'LightlineLineinfo'</span> <span class="token punctuation">}</span>
 
