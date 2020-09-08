@@ -66,7 +66,7 @@ let s:nord3_bright = ["#616E88", 8]
 
 ![Split](./split.png)
 
-I like the statusline display full path (relative path) for current file, but when using split the space limited, so I adjust the filename to only show the filename. Moreover, I set the lineinfo and filetype component to "dissapear" on specific window width.
+I like the statusline to display full path (relative path) for current file, but when using split the space limited, so I adjust the filename to only show the filename. Moreover, I set the lineinfo and filetype component to "dissapear" on specific window width.
 
 The way to do that is by using custom component and bind it to a function we define. For example, this is how I setup the lineinfo component.
 
@@ -115,7 +115,7 @@ endfunction
 
 ## Tabline / Bufferline
 
-Since lightline doesn't handle the tabline the way I expected, [I use separate plugin for it.](https://github.com/mengelbrecht/lightline-bufferline), and use the default setup they provide on the readme.
+Since lightline doesn't handle the tabline the way I expected, [I use separate plugin for it](https://github.com/mengelbrecht/lightline-bufferline), and use the default setup they provide on the readme.
 
 The only customization is of course the color highlighting.
 
