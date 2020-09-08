@@ -1,5 +1,5 @@
 ---
-title: Custtomizing Vim Lightline
+title: Customizing Vim Lightline
 date: "2020-09-09T00:03:22+0700"
 description: "Here's a summary of how I customize vim lightline plugin to match my needs."
 ---
