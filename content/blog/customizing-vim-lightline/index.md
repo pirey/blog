@@ -128,6 +128,10 @@ let s:p.tabline.tabsel = [[ s:nord4, s:nord3, 'bold' ]]
 
 Additionally, I use some tricks for the tabline which I will explain in another post.
 
+## Credit
+
+I grab most of the configuration from [bandithijo](https://github.com/bandithijo/nvimrc/blob/master/plugin/config/config-lightline.vim), and tweak it further according to my needs.
+
 ## P.S.
 
 You can find full configuration on my [dotfiles](https://github.com/pirey/dotfiles).
