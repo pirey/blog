@@ -35,9 +35,9 @@ const Layout = ({ title, children }) => {
       <header>{header}</header>
       <main>{children}</main>
       <footer>
-        <a href="https://github.com/pirey" target="_blank" rel="noopener">Github</a>{' '}
-        <a href="https://github.com/pratama.yeri" target="_blank" rel="noopener">Facebook</a>{' '}
-        <a href="https://github.com/_pirey" target="_blank" rel="noopener">Twitter</a>{' '}
+        <a href="https://github.com/pirey" target="_blank" rel="noreferrer">Github</a>{' '}
+        <a href="https://github.com/pratama.yeri" target="_blank" rel="noreferrer">Facebook</a>{' '}
+        <a href="https://github.com/_pirey" target="_blank" rel="noreferrer">Twitter</a>{' '}
       </footer>
     </div>
   )
