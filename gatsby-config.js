@@ -65,7 +65,7 @@ module.exports = {
         short_name: `Yeri's Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#0d8d74`,
         display: `minimal-ui`,
         icon: `static/favicon.png`,
       },
