@@ -95,7 +95,7 @@ let s:p.inactive.right = [[ s:nord1, s:nord1 ], [ s:nord1, s:nord1 ]]
 
 ## Narrow window, even more simplified
 
-![explorer window]('./explorer.png')
+![explorer window](./explorer.png)
 
 You can see that when the window is too small, I just hide other components except the `mode`, by using the same method as lineinfo above, but with different window width breakpoint.
 
