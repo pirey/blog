@@ -1,10 +1,11 @@
 ---
 title: Save external image to gallery with ionic
+date: 2016-04-13 21:06:15
+description: Here you will learn to save external image to gallery in ionic
 tags:
     - angularjs
     - cordova
     - ionic
-date: 2016-04-13 21:06:15
 ---
 
 A few days ago I need to implement a feature where the user can save some displayed image in ionic app to the device image gallery. In my case, it was an image displayed using html img tag with external source url. So all I need was some method to download that file. Though the task is simple, it's been a-lot-of-browsing activity since it was my first time dealing with cordova plugin. Then I decided to write this post, to explain the steps needed and wrap it all up. Let's begin. First we create an ionic project, and move to that directory

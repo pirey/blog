@@ -1,6 +1,7 @@
 ---
 title: Catch multiple exception in javascript with union type
 date: 2019-06-15 00:00:08
+description: "Here you will learn to simulate multiple exception type handling using functional programming concept."
 tags:
   - javascript
 ---

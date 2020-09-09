@@ -1,6 +1,7 @@
 ---
-title: Wifi connection with nmcli
+title: Wifi connection in cli with nmcli
 date: 2019-06-30 18:15:14
+description: An nmcli cheatsheet
 tags:
     - linux
 ---

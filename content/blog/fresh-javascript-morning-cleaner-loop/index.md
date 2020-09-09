@@ -1,6 +1,7 @@
 ---
 title: Fresh javascript morning - cleaner loop
 date: 2019-07-09 08:09:02
+description: Learn to manipulate list in javascript using functional programming concept.
 tags:
     - javascript
 ---

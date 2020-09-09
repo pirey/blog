@@ -1,6 +1,7 @@
 ---
 title: Git intro
 date: 2019-06-13 23:18:05
+description: An awesome introduction to git, you should definitely read it.
 tags:
     - git
 ---

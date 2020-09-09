@@ -1,9 +1,18 @@
 ---
-title: 'Vim pro tips: fuzzy finding'
+title: "Vim pro tips: fuzzy finding with CtrlP"
 date: 2016-08-24 23:50:40
+description: "Here you will learn to easily find files in project directory using vim using CtrlP"
 tags:
     - vim
 ---
+
+Update
+------
+
+I'm now using fzf for fuzzy finding and no longer using CtrlP, but it was (and still) a great plugin to get started.
+
+Intro
+-----
 
 Sublime Text (or other editor) has a fuzzy finder feature that let us search for files within our project directory.
 

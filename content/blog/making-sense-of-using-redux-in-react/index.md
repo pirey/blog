@@ -1,6 +1,7 @@
 ---
 title: Making sense of using Redux in React
 date: 2019-01-28 18:56:07
+description: Simple explanation of react-redux api.
 tags:
     - react
     - javascript

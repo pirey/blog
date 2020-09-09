@@ -1,6 +1,7 @@
 ---
 title: Vim with no frills
 date: 2019-06-25 14:50:02
+description: It's vim, but with no frills. I don't know what's the meaning, either.
 tags:
     - vim
 ---

@@ -1,6 +1,7 @@
 ---
 title: iOS app distribution workflow overview
 date: 2016-04-28 21:11:22
+description: A simple recap of my personal experience deploying apps to Apple Store.
 tags:
     - ionic
     - iOS

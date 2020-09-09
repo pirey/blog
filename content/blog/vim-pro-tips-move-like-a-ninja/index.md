@@ -1,6 +1,7 @@
 ---
 title: 'Vim pro tips: move like a ninja!'
 date: 2017-11-21 18:13:43
+description: Jump, jump, jump, jumpy jumpy cursor!
 tags:
     - vim
 ---

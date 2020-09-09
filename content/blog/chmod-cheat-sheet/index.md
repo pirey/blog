@@ -1,6 +1,7 @@
 ---
 title: chmod permissions made easy
 date: 2016-08-24 14:04:07
+description: A simple chmod cheatsheet
 tags:
     - shell
 ---

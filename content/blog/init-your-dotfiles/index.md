@@ -1,6 +1,7 @@
 ---
 title: Init your dotfiles
 date: 2019-06-23 20:19:21
+description: Here you will learn how to init your dotfiles.
 tags:
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: SysV Init - SystemD
 date: 2019-10-14 21:06:05
+description: Simple comparison between sysv init and systmd.
 tags:
 ---
 

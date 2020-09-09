@@ -2,6 +2,7 @@
 title: 'Clearing confusion: Prettier vs Linters'
 url: 340.html
 date: 2018-12-05 16:25:19
+description: Simple comparison between prettier and linters
 tags:
     - javascript
 ---
