@@ -1,7 +1,7 @@
 ---
 title: Customizing Coc Explorer
 date: "2020-09-23T08:31:13+0700"
-description: "Here is how I customize coc-explorer, and alternative to nerdtree"
+description: "Here is how I customize coc-explorer, an alternative to nerdtree"
 ---
 
 Coc explorer is a [coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions) extension that tries to mimic the file explorer feature of vscode.
