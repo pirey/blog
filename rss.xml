@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Blog]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 23 Sep 2020 01:33:59 GMT</lastBuildDate><item><title><![CDATA[Customizing Coc Explorer]]></title><description><![CDATA[Coc explorer is a coc.nvim extension that tries to mimic the file explorer feature of vscode. Here’s how it looks by default.  To make…]]></description><link>https://yeripratama.com/blog/customizing-coc-explorer/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-coc-explorer/</guid><pubDate>Wed, 23 Sep 2020 01:31:13 GMT</pubDate><content:encoded>&lt;p&gt;Coc explorer is a &lt;a href=&quot;https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions&quot;&gt;coc.nvim&lt;/a&gt; extension that tries to mimic the file explorer feature of vscode.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Blog]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 23 Sep 2020 01:36:10 GMT</lastBuildDate><item><title><![CDATA[Customizing Coc Explorer]]></title><description><![CDATA[Coc explorer is a coc.nvim extension that tries to mimic the file explorer feature of vscode. Here’s how it looks by default.  To make…]]></description><link>https://yeripratama.com/blog/customizing-coc-explorer/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-coc-explorer/</guid><pubDate>Wed, 23 Sep 2020 01:31:13 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://github.com/weirongxu/coc-explorer&quot;&gt;Coc explorer&lt;/a&gt; is a &lt;a href=&quot;https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions&quot;&gt;coc.nvim&lt;/a&gt; extension that tries to mimic the file explorer feature of vscode.&lt;/p&gt;
 &lt;p&gt;Here’s how it looks by default.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -34,18 +34,18 @@
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;To make adjustment, we can open coc config file using &lt;code class=&quot;language-text&quot;&gt;:CocConfig&lt;/code&gt; command and specify config option within &lt;code class=&quot;language-text&quot;&gt;explorer&lt;/code&gt; field.&lt;/p&gt;
 &lt;p&gt;The first thing I want to change is the explorer width, I think its too wide.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.width&amp;quot;: 30&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.width&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The next thing is to tell it to display hidden files, because I work with a lot of dotfiles.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.file.showHiddenFiles&amp;quot;: true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.file.showHiddenFiles&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;When we open coc explorer, by default it will navigate to currently opened file in the tree.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/22d4739e10f526126a828f411fb8cd53/coc-explorer-auto-reveal.gif&quot; alt=&quot;auto reveal by default&quot;&gt;&lt;/p&gt;
 &lt;p&gt;I’m not really like the behaviour, so I disable it.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.file.autoReveal&amp;quot;: false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.file.autoReveal&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The popup window is also distracting rather than helpful, so I disable it also.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.previewAction.onHover&amp;quot;: false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.previewAction.onHover&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I’d like to display some nice font icon, I’m using both nerdfont and devicons.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.icon.enableVimDevicons&amp;quot;: true
-&amp;quot;explorer.icon.enableNerdfont&amp;quot;: true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.icon.enableVimDevicons&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; true
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.icon.enableNerdfont&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
@@ -79,21 +79,21 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;By default, coc explorer render ridiculous amount of whitespace after filename, of course I’m getting rid of that.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.file.child.template&amp;quot;: &amp;quot;[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError &amp;amp; 1][filename omitCenter 1][modified][readonly] [linkIcon &amp;amp; 1][link growRight 1 omitCenter 5]&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.file.child.template&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError &amp;amp; 1][filename omitCenter 1][modified][readonly] [linkIcon &amp;amp; 1][link growRight 1 omitCenter 5]&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Next, I tidy up the label a bit.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.buffer.root.template&amp;quot;: &amp;quot;[icon &amp;amp; 1] OPEN EDITORS&amp;quot;
-&amp;quot;explorer.file.root.template&amp;quot;: &amp;quot;[icon &amp;amp; 1] PROJECT ([root])&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.buffer.root.template&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[icon &amp;amp; 1] OPEN EDITORS&quot;&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.file.root.template&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[icon &amp;amp; 1] PROJECT ([root])&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I also still use some mappings that I use in nerdtree.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.keyMappings&amp;quot;: {
-    &amp;quot;s&amp;quot;: &amp;quot;open:vsplit&amp;quot;,
-    &amp;quot;mm&amp;quot;: &amp;quot;rename&amp;quot;,
-    &amp;quot;mc&amp;quot;: &amp;quot;copyFile&amp;quot;,
-    &amp;quot;C&amp;quot;: &amp;quot;copyFile&amp;quot;,
-    &amp;quot;md&amp;quot;: &amp;quot;delete&amp;quot;,
-    &amp;quot;D&amp;quot;: &amp;quot;delete&amp;quot;,
-    &amp;quot;ma&amp;quot;: &amp;quot;addFile&amp;quot;,
-    &amp;quot;mA&amp;quot;: &amp;quot;addDirectory&amp;quot;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.keyMappings&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;s&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;open:vsplit&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;mm&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;rename&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;mc&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;copyFile&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;copyFile&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;md&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;delete&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;D&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;delete&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;ma&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;addFile&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;mA&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;addDirectory&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Final result&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -128,26 +128,25 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Full config:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.width&amp;quot;: 30,
-&amp;quot;explorer.buffer.root.template&amp;quot;: &amp;quot;[icon &amp;amp; 1] OPEN EDITORS&amp;quot;,
-&amp;quot;explorer.file.root.template&amp;quot;: &amp;quot;[icon &amp;amp; 1] PROJECT ([root])&amp;quot;,
-&amp;quot;explorer.file.child.template&amp;quot;: &amp;quot;[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError &amp;amp; 1][filename omitCenter 1][modified][readonly] [linkIcon &amp;amp; 1][link growRight 1 omitCenter 5]&amp;quot;,
-&amp;quot;explorer.file.showHiddenFiles&amp;quot;: true,
-&amp;quot;explorer.file.autoReveal&amp;quot;: false,
-&amp;quot;explorer.icon.enableVimDevicons&amp;quot;: true,
-&amp;quot;explorer.icon.enableNerdfont&amp;quot;: true,
-&amp;quot;explorer.previewAction.onHover&amp;quot;: false,
-&amp;quot;explorer.keyMappings&amp;quot;: {
-  /* some mapping adapted from nerdtree */
-  &amp;quot;s&amp;quot;: &amp;quot;open:vsplit&amp;quot;,
-  &amp;quot;mm&amp;quot;: &amp;quot;rename&amp;quot;,
-  &amp;quot;mc&amp;quot;: &amp;quot;copyFile&amp;quot;,
-  &amp;quot;C&amp;quot;: &amp;quot;copyFile&amp;quot;,
-  &amp;quot;md&amp;quot;: &amp;quot;delete&amp;quot;,
-  &amp;quot;D&amp;quot;: &amp;quot;delete&amp;quot;,
-  &amp;quot;ma&amp;quot;: &amp;quot;addFile&amp;quot;,
-  &amp;quot;mA&amp;quot;: &amp;quot;addDirectory&amp;quot;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Customizing Vim Lightline]]></title><description><![CDATA[Here’s a summary of how I customize vim lightline plugin to match my needs. The idea is to have statusline that is nice, simple, and still…]]></description><link>https://yeripratama.com/blog/customizing-vim-lightline/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-vim-lightline/</guid><pubDate>Tue, 08 Sep 2020 17:03:22 GMT</pubDate><content:encoded>&lt;p&gt;Here’s a summary of how I customize vim lightline plugin to match my needs.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;explorer.width&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.buffer.root.template&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[icon &amp;amp; 1] OPEN EDITORS&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.file.root.template&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[icon &amp;amp; 1] PROJECT ([root])&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.file.child.template&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError &amp;amp; 1][filename omitCenter 1][modified][readonly] [linkIcon &amp;amp; 1][link growRight 1 omitCenter 5]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.file.showHiddenFiles&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; true&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.file.autoReveal&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; false&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.icon.enableVimDevicons&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; true&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.icon.enableNerdfont&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; true&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.previewAction.onHover&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; false&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;explorer.keyMappings&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;s&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;open:vsplit&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;mm&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;rename&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;mc&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;copyFile&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;copyFile&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;md&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;delete&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;D&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;delete&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;ma&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;addFile&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;mA&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;addDirectory&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Customizing Vim Lightline]]></title><description><![CDATA[Here’s a summary of how I customize vim lightline plugin to match my needs. The idea is to have statusline that is nice, simple, and still…]]></description><link>https://yeripratama.com/blog/customizing-vim-lightline/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-vim-lightline/</guid><pubDate>Tue, 08 Sep 2020 17:03:22 GMT</pubDate><content:encoded>&lt;p&gt;Here’s a summary of how I customize vim lightline plugin to match my needs.&lt;/p&gt;
 &lt;p&gt;The idea is to have statusline that is nice, simple, and still useful.&lt;/p&gt;
 &lt;p&gt;So I come up with this setup.&lt;/p&gt;
 &lt;h2&gt;Full window, full feature&lt;/h2&gt;
