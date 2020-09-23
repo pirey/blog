@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Blog]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 09 Sep 2020 03:05:01 GMT</lastBuildDate><item><title><![CDATA[Customizing Vim Lightline]]></title><description><![CDATA[Here’s a summary of how I customize vim lightline plugin to match my needs. The idea is to have statusline that is nice, simple, and still…]]></description><link>https://yeripratama.com/blog/customizing-vim-lightline/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-vim-lightline/</guid><pubDate>Tue, 08 Sep 2020 17:03:22 GMT</pubDate><content:encoded>&lt;p&gt;Here’s a summary of how I customize vim lightline plugin to match my needs.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Blog]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 23 Sep 2020 01:32:05 GMT</lastBuildDate><item><title><![CDATA[Customizing Coc Explorer]]></title><description><![CDATA[Coc explorer is a coc.nvim extension that tries to mimic the file explorer feature of vscode. Here’s how it looks by default.  To make…]]></description><link>https://yeripratama.com/blog/customizing-coc-explorer/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-coc-explorer/</guid><pubDate>Wed, 23 Sep 2020 01:31:13 GMT</pubDate><content:encoded>&lt;p&gt;Coc explorer is a &lt;a href=&quot;https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions&quot;&gt;coc.nvim&lt;/a&gt; extension that tries to mimic the file explorer feature of vscode.&lt;/p&gt;
+&lt;p&gt;Here’s how it looks by default.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/007393079ad8d94957db9ce606c00e13/b5a09/initial.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.75675675675676%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAAAt0lEQVQoz62T6w6CMAyF+z5exoY4hgGm3GLExPj+71K7oSgoQ5L9+NKmOT0ckg5k3qLUVwz2JwxkgVyWKFSNImksjOabMMftTg/qWmR97XsCRFKjKm52MMCInsKxmalTAKdU0aFxCn+ZTfXwiu0SjU1daeG94Dac++CX4T8LZsYiT4aLf9kXsOJpf0c+gKy8Y5xdkMclHXd32FxWtl8E7ZmHATI921fCoiNF7vjsZ7FajaGqUFCoB2/4Z6Rr56zLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Initial looks&quot;
+        title=&quot;Initial looks&quot;
+        src=&quot;/blog/static/007393079ad8d94957db9ce606c00e13/fcda8/initial.png&quot;
+        srcset=&quot;/blog/static/007393079ad8d94957db9ce606c00e13/12f09/initial.png 148w,
+/blog/static/007393079ad8d94957db9ce606c00e13/e4a3f/initial.png 295w,
+/blog/static/007393079ad8d94957db9ce606c00e13/fcda8/initial.png 590w,
+/blog/static/007393079ad8d94957db9ce606c00e13/efc66/initial.png 885w,
+/blog/static/007393079ad8d94957db9ce606c00e13/c83ae/initial.png 1180w,
+/blog/static/007393079ad8d94957db9ce606c00e13/b5a09/initial.png 1360w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;To make adjustment, we can open coc config file using &lt;code class=&quot;language-text&quot;&gt;:CocConfig&lt;/code&gt; command and specify config option within &lt;code class=&quot;language-text&quot;&gt;explorer&lt;/code&gt; field.&lt;/p&gt;
+&lt;p&gt;The first thing I want to change is the explorer width, I think its too wide.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.width&amp;quot;: 30&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The next thing is to tell it to display hidden files, because I work with a lot of dotfiles.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.file.showHiddenFiles&amp;quot;: true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we open coc explorer, by default it will navigate to currently opened file in the tree.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/22d4739e10f526126a828f411fb8cd53/coc-explorer-auto-reveal.gif&quot; alt=&quot;auto reveal by default&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I’m not really like the behaviour, so I disable it.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.file.autoReveal&amp;quot;: false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The popup window is also distracting rather than helpful, so I disable it also.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.previewAction.onHover&amp;quot;: false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I’d like to display some nice font icon, I’m using both nerdfont and devicons.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.icon.enableVimDevicons&amp;quot;: true
+&amp;quot;explorer.icon.enableNerdfont&amp;quot;: true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/aacb541f7682e7626db345f972cbd05a/b5a09/with-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.75675675675676%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAAApUlEQVQoz72T3QrDIAyF8z6b69+qday2rpYxym76/u+SqkxxUqEdZRcfJpKcnIDCbZyRyTfm9GEhVYeXa+8JcxeTT2w4l8JjcqBajGtRoi/CRseqaDQ0BOj9ibybVp3EcYqwBmI3riCrtwt+OUy5Sq38s+Celf8jeBRwKlr/ho4AhJqxERMWTHlyOuzH9LEBgbUv+0OyWmrL0p+bsfU9VnzEslG4AKU1Z8MQVQdHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;with icon&quot;
+        title=&quot;with icon&quot;
+        src=&quot;/blog/static/aacb541f7682e7626db345f972cbd05a/fcda8/with-icon.png&quot;
+        srcset=&quot;/blog/static/aacb541f7682e7626db345f972cbd05a/12f09/with-icon.png 148w,
+/blog/static/aacb541f7682e7626db345f972cbd05a/e4a3f/with-icon.png 295w,
+/blog/static/aacb541f7682e7626db345f972cbd05a/fcda8/with-icon.png 590w,
+/blog/static/aacb541f7682e7626db345f972cbd05a/efc66/with-icon.png 885w,
+/blog/static/aacb541f7682e7626db345f972cbd05a/c83ae/with-icon.png 1180w,
+/blog/static/aacb541f7682e7626db345f972cbd05a/b5a09/with-icon.png 1360w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;By default, coc explorer render ridiculous amount of whitespace after filename, of course I’m getting rid of that.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.file.child.template&amp;quot;: &amp;quot;[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError &amp;amp; 1][filename omitCenter 1][modified][readonly] [linkIcon &amp;amp; 1][link growRight 1 omitCenter 5]&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Next, I tidy up the label a bit.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.buffer.root.template&amp;quot;: &amp;quot;[icon &amp;amp; 1] OPEN EDITORS&amp;quot;
+&amp;quot;explorer.file.root.template&amp;quot;: &amp;quot;[icon &amp;amp; 1] PROJECT ([root])&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I also still use some mappings that I use in nerdtree.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.keyMappings&amp;quot;: {
+    &amp;quot;s&amp;quot;: &amp;quot;open:vsplit&amp;quot;,
+    &amp;quot;mm&amp;quot;: &amp;quot;rename&amp;quot;,
+    &amp;quot;mc&amp;quot;: &amp;quot;copyFile&amp;quot;,
+    &amp;quot;C&amp;quot;: &amp;quot;copyFile&amp;quot;,
+    &amp;quot;md&amp;quot;: &amp;quot;delete&amp;quot;,
+    &amp;quot;D&amp;quot;: &amp;quot;delete&amp;quot;,
+    &amp;quot;ma&amp;quot;: &amp;quot;addFile&amp;quot;,
+    &amp;quot;mA&amp;quot;: &amp;quot;addDirectory&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Final result&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/cb082b086869b37a250fddd9e6d1588e/b5a09/final.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.75675675675676%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABXUlEQVQoz41T2W6DMBDkf6qEK7YBc/oATB7SpMr/f8p2d11RtYqSPIxgr2GPIdHuE7S7QFE5OJ4mEJ2H1gdoXQBtV5D9jPBQDTOUjYVMTZArA6kc+T0V+JRTBNpJqVeo/A3JRjgUA0giRLJu3qBfzqCGDZMNxgfOOYpfpA+QFPUMtbvCoYwFRWWhnlZGpiwmGe6c4u+ACfV6hxSLyUHdNGblMT/yfk/k7t5Aklc4IhJqf8XdONyT4901ZoGTtnEV5d+iZx9IMmlhnG9gw527I8J62hiyWx+O+4w0ybCrDglVF+IOa4eHCAzZLWzvBeKNDmmHHY4s9MIO0Xr8QMALBxw7oIxmyCvDUokymV4Qov7G5QuqfuNd5Xhl1S9ITESO9UWaI9mQrF5eubUobHPhgxCo41Oz4kE2RGA7V55jJCOGfICfeEKj7lcUcSQ6RBwh2uzb/f8gYm5Ze/7bvgEnB29SqNgXtQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;final result&quot;
+        title=&quot;final result&quot;
+        src=&quot;/blog/static/cb082b086869b37a250fddd9e6d1588e/fcda8/final.png&quot;
+        srcset=&quot;/blog/static/cb082b086869b37a250fddd9e6d1588e/12f09/final.png 148w,
+/blog/static/cb082b086869b37a250fddd9e6d1588e/e4a3f/final.png 295w,
+/blog/static/cb082b086869b37a250fddd9e6d1588e/fcda8/final.png 590w,
+/blog/static/cb082b086869b37a250fddd9e6d1588e/efc66/final.png 885w,
+/blog/static/cb082b086869b37a250fddd9e6d1588e/c83ae/final.png 1180w,
+/blog/static/cb082b086869b37a250fddd9e6d1588e/b5a09/final.png 1360w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Full config:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;explorer.width&amp;quot;: 30,
+&amp;quot;explorer.buffer.root.template&amp;quot;: &amp;quot;[icon &amp;amp; 1] OPEN EDITORS&amp;quot;,
+&amp;quot;explorer.file.root.template&amp;quot;: &amp;quot;[icon &amp;amp; 1] PROJECT ([root])&amp;quot;,
+&amp;quot;explorer.file.child.template&amp;quot;: &amp;quot;[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError &amp;amp; 1][filename omitCenter 1][modified][readonly] [linkIcon &amp;amp; 1][link growRight 1 omitCenter 5]&amp;quot;,
+&amp;quot;explorer.file.showHiddenFiles&amp;quot;: true,
+&amp;quot;explorer.file.autoReveal&amp;quot;: false,
+&amp;quot;explorer.icon.enableVimDevicons&amp;quot;: true,
+&amp;quot;explorer.icon.enableNerdfont&amp;quot;: true,
+&amp;quot;explorer.previewAction.onHover&amp;quot;: false,
+&amp;quot;explorer.keyMappings&amp;quot;: {
+  /* some mapping adapted from nerdtree */
+  &amp;quot;s&amp;quot;: &amp;quot;open:vsplit&amp;quot;,
+  &amp;quot;mm&amp;quot;: &amp;quot;rename&amp;quot;,
+  &amp;quot;mc&amp;quot;: &amp;quot;copyFile&amp;quot;,
+  &amp;quot;C&amp;quot;: &amp;quot;copyFile&amp;quot;,
+  &amp;quot;md&amp;quot;: &amp;quot;delete&amp;quot;,
+  &amp;quot;D&amp;quot;: &amp;quot;delete&amp;quot;,
+  &amp;quot;ma&amp;quot;: &amp;quot;addFile&amp;quot;,
+  &amp;quot;mA&amp;quot;: &amp;quot;addDirectory&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Customizing Vim Lightline]]></title><description><![CDATA[Here’s a summary of how I customize vim lightline plugin to match my needs. The idea is to have statusline that is nice, simple, and still…]]></description><link>https://yeripratama.com/blog/customizing-vim-lightline/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-vim-lightline/</guid><pubDate>Tue, 08 Sep 2020 17:03:22 GMT</pubDate><content:encoded>&lt;p&gt;Here’s a summary of how I customize vim lightline plugin to match my needs.&lt;/p&gt;
 &lt;p&gt;The idea is to have statusline that is nice, simple, and still useful.&lt;/p&gt;
 &lt;p&gt;So I come up with this setup.&lt;/p&gt;
 &lt;h2&gt;Full window, full feature&lt;/h2&gt;
