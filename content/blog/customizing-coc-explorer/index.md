@@ -82,7 +82,7 @@ I also still use some mappings that I use in nerdtree.
 
 ![final result](./final.png)
 
-Full config:
+[Full config](https://github.com/pirey/dotfiles/blob/master/home/.config/nvim/coc-settings.json):
 
 ```vim
 "explorer.width": 30,
