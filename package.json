@@ -56,7 +56,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
-    "deploy:github": "npm run build && gh-pages -d public",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public",
+    "postdeploy": "git push origin master",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }
