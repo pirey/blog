@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: `/blog`,
   siteMetadata: {
-    title: `Yeri's Blog`,
+    title: `Yeri's Digital Note`,
     author: {
       name: `Yeri`,
       summary: ``,
@@ -61,8 +61,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Yeri's Blog`,
-        short_name: `Yeri's Blog`,
+        name: `Yeri's Digital Note`,
+        short_name: `Yeri's Digital Note`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#0d8d74`,
