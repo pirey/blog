@@ -28,4 +28,12 @@ So I create new autocommand to automatically start insert mode when I open new t
 autocmd TermOpen term://* startinsert
 ```
 
+The last thing I want to mention is, to scroll output of the terminal, I need to enter the `normal` mode of the terminal, the default keymap is `<c-\><c-n>` which is definitely awkward, so I came up with more sane adjustment.
+
+```vimscript
+tnoremap <Esc> <C-\><C-n>
+```
+
+Now I can move around pretty easily.
+
 Nice.
