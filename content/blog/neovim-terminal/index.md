@@ -14,7 +14,7 @@ I want to open new terminal in a new split. I tried to mimic the behavior of vsc
 
 Basically I need to open new split, at the bottom of the screen, and call the terminal command. I also choose to create new command to do the thing.
 
-```vimscript
+```vim
 command! Term :bot sp | term
 ```
 
@@ -24,14 +24,19 @@ Also, when opening a new terminal, the default mode is `normal` mode, but when I
 
 So I create new autocommand to automatically start insert mode when I open new terminal.
 
-```vimscript
+```vim
 autocmd TermOpen term://* startinsert
 ```
 
 The last thing I want to mention is, to scroll output of the terminal, I need to enter the `normal` mode of the terminal, the default keymap is `<c-\><c-n>` which is definitely awkward, so I came up with more sane adjustment.
 
-```vimscript
+```vim
 tnoremap <Esc> <C-\><C-n>
+```
+But because I also use fzf, I don't want to remap the escape key when I'm opening fzf buffer. So I tweak it a little bit.
+
+```vim
+tnoremap <expr> <Esc> &ft == 'fzf' ? '<Esc>' : '<C-\><C-n>'
 ```
 
 Now I can move around pretty easily.
