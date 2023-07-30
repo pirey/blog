@@ -1,4 +1,366 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Digital Note]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 31 Dec 2020 03:15:19 GMT</lastBuildDate><item><title><![CDATA[Neovim terminal]]></title><description><![CDATA[Previously I’ve been using neovim alongside tmux for spinning up quick terminal session. But when I open new tmux pane or window, the layout…]]></description><link>https://yeripratama.com/blog/neovim-terminal/</link><guid isPermaLink="false">https://yeripratama.com/blog/neovim-terminal/</guid><pubDate>Mon, 28 Dec 2020 03:45:12 GMT</pubDate><content:encoded>&lt;p&gt;Previously I’ve been using neovim alongside tmux for spinning up quick terminal session. But when I open new tmux pane or window, the layout of my screen is changed and it is kinda break my state of focus when writing code. I find it more pleasant to open terminal inside neovim directly as it doesn’t change my current focus. I feel that I don’t loose control of the things I’m working on.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Digital Note]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 30 Jul 2023 11:58:47 GMT</lastBuildDate><item><title><![CDATA[Customizing telescope.nvim]]></title><description><![CDATA[Prerequisites The customization relies on the following plugins. lazy.nvim plugin manager, to define telescope setup options tokyonight…]]></description><link>https://yeripratama.com/blog/customizing-nvim-telescope/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-nvim-telescope/</guid><pubDate>Sun, 30 Jul 2023 08:20:15 GMT</pubDate><content:encoded>&lt;h2&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;The customization relies on the following plugins.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/folke/lazy.nvim&quot;&gt;lazy.nvim&lt;/a&gt; plugin manager, to define telescope setup options&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/folke/tokyonight.nvim&quot;&gt;tokyonight&lt;/a&gt; colorscheme, to define color highlight&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I don’t like the default layout configuration because I consider it &lt;em&gt;not clean&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/ddb667c235b3942b4d741ed8e1baa64d/29114/0-initial.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABWUlEQVQoz6WTa1OCQBSG+RFlZgi7C4iAIBe5eEvRbCbtkzPV9P9/yNvZ1SzNPmQfntnlnH0fzjCLxsQA3C4RpI+I8zUcb4pGq4erpo9rQq23PYjP+o1H9YBqwaHfaIVotiIihCbsAlKaDZ9RP7yhGG7Q8YZUS8B4ApPHYFYGP16Ai5Sed3WF2PW5ncPuVES5F1o5knKD2eIFIQVlyGCxom32YUgxnVH7ff173xQZpIfTmRPhK4JwBt2IfgiZfYFwvnxDlCy/RP8V1qt3xNmKJuyfTJheICyeMJ1v0fXH0Ns9OhjtMEIKUugvQrnJJ1uE6ZqCIzBnfATvTGktlVwKjokOQkEv1bi8hyR0ghqWP6f7NlOrQu4Jm3rCHakgswZHmJRn+6HUhF5Uww/vwd2Krgt9Kxk6hxLkZ5GibjBRaIKuiRtU0J0cdzS+Tt/rHLL3G7JvuQX9ZRU+ALnHRF3v8s1mAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Initial&quot;
+        title=&quot;Initial&quot;
+        src=&quot;/blog/static/ddb667c235b3942b4d741ed8e1baa64d/fcda8/0-initial.png&quot;
+        srcset=&quot;/blog/static/ddb667c235b3942b4d741ed8e1baa64d/12f09/0-initial.png 148w,
+/blog/static/ddb667c235b3942b4d741ed8e1baa64d/e4a3f/0-initial.png 295w,
+/blog/static/ddb667c235b3942b4d741ed8e1baa64d/fcda8/0-initial.png 590w,
+/blog/static/ddb667c235b3942b4d741ed8e1baa64d/efc66/0-initial.png 885w,
+/blog/static/ddb667c235b3942b4d741ed8e1baa64d/c83ae/0-initial.png 1180w,
+/blog/static/ddb667c235b3942b4d741ed8e1baa64d/29114/0-initial.png 1920w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I really appreciate the preview feature even though I’m not rely heavily on it, but sometimes I can’t see them clear enough.&lt;/p&gt;
+&lt;p&gt;As you can see, the preview width is narrower than the width of the result list.&lt;/p&gt;
+&lt;p&gt;I can adjust the preview width to be larger, but then I need to reduce the width of the result list, which will make it hard to look if I have files with long name. The worse thing than that is the layout will look weird.&lt;/p&gt;
+&lt;p&gt;Then why don’t we leverage the full size of our screen?&lt;/p&gt;
+&lt;p&gt;So here’s what I did.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/b0f07ab75b79bcfbd243ec2783f9a7e5/29114/final.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA/ElEQVQoz6WSXU/CMBSG+ycMEkFH231EyAa0tt0Y4sW8EVED+v9/yutZ1WUGhYkXT9Kek/Pk7QdT7hmZ3mDIC5wPLWE8/Uvrqdd1T8QLnPWu0etPDsJ0voYrnjCdV5CRhQzNPlQP4/yjH7mDMJVvsFjtUN69QVBhJG7ApfnGSJim/lO/DVOOhLdbFMstpSj2Btr7YzIvnJm1T+jKF4jQdho6InxohO0Up4p9wnL1SsfeIZ1V/05Jd/joZbU0GS+bdH+lEWp6lFqW05HlL6/chS8xm8zvMVUVeOwQcIVA6JMQn/+VBeMSYWIwkBoXVykGQUakHcmaGR5pyMTiHZEuSrYlkYe6AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Final&quot;
+        title=&quot;Final&quot;
+        src=&quot;/blog/static/b0f07ab75b79bcfbd243ec2783f9a7e5/fcda8/final.png&quot;
+        srcset=&quot;/blog/static/b0f07ab75b79bcfbd243ec2783f9a7e5/12f09/final.png 148w,
+/blog/static/b0f07ab75b79bcfbd243ec2783f9a7e5/e4a3f/final.png 295w,
+/blog/static/b0f07ab75b79bcfbd243ec2783f9a7e5/fcda8/final.png 590w,
+/blog/static/b0f07ab75b79bcfbd243ec2783f9a7e5/efc66/final.png 885w,
+/blog/static/b0f07ab75b79bcfbd243ec2783f9a7e5/c83ae/final.png 1180w,
+/blog/static/b0f07ab75b79bcfbd243ec2783f9a7e5/29114/final.png 1920w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Remove border&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/7c123b2043e42202f7135ca4ef693da3/29114/1-remove-border.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABs0lEQVQoz5VS23KCQAzlL6ytVVhABLmJiyCo4L2jo512On1q+9L//4bT7CpepvWhD2d2k2xO9iRRVMahmwke1T5qdQ939x5qF5B23YWu57DdOdqdApabQrdiNFohGs3olCNOhRkDaHoMcRrtRJILiPsBqYwFvRUGwz38aA0vnMLxRjCtlDCUb6r3V4QCFeGlX2V9dL0Z+vEW0WBL90Imqyy+yhU4EXb5BsPyHUn2TNVL8p0fCULXmyPNX8HTHUK+hOOXsOyc4vHV2yMhh5fsUa6/wJOtLHBZWcQ73QJusIDjTmCSRP3YikP8BuFk9Yl+svklQwzO9Rf0wxdE8QYR35I9J9nZ35JVSbgjwg8E0UJKFEUqCLtjj5GO9tRDMZQFDWeJtj26RRgjzN5QPH0jHL7CdGYw7CmtRgGd1oRZJLOTUzs26PGVJPTCOa3RRMrVjDOpojEuq1hOAdOeUG9yqky75pRgZiZtAdPKiKSkgY3lMIRtXPXx0HfFDqZUaUy/SNHSelKeyiK0CId7BY6mRn4BsluVX7REDm0koTC/oB8laBicNt9HQw3+hYdjjm4NSGGKH7PZTluFjbyQAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Remove Border&quot;
+        title=&quot;Remove Border&quot;
+        src=&quot;/blog/static/7c123b2043e42202f7135ca4ef693da3/fcda8/1-remove-border.png&quot;
+        srcset=&quot;/blog/static/7c123b2043e42202f7135ca4ef693da3/12f09/1-remove-border.png 148w,
+/blog/static/7c123b2043e42202f7135ca4ef693da3/e4a3f/1-remove-border.png 295w,
+/blog/static/7c123b2043e42202f7135ca4ef693da3/fcda8/1-remove-border.png 590w,
+/blog/static/7c123b2043e42202f7135ca4ef693da3/efc66/1-remove-border.png 885w,
+/blog/static/7c123b2043e42202f7135ca4ef693da3/c83ae/1-remove-border.png 1180w,
+/blog/static/7c123b2043e42202f7135ca4ef693da3/29114/1-remove-border.png 1920w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Technically, I just changed the color highlight or the border to match the color of the background.&lt;/p&gt;
+&lt;p&gt;As I mention in the prerequisites section above, I’m using tokyonight theme, and it provides a configuration option to override the highlight of a highlight group.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;highlight_telescope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;hl&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; prompt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg
+  hl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TelescopeNormal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  hl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TelescopeBorder &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  hl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TelescopePromptNormal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; prompt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  hl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TelescopePromptBorder &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; prompt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; prompt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  hl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TelescopePromptTitle &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg_highlight&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  hl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TelescopePreviewTitle &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  hl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TelescopeResultsTitle &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  hl&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;NoiceCmdlinePopupBorder &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;folke/tokyonight.nvim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    opts &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      on_highlights &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;hl&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;highlight_telescope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;hl&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; c&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Maximize width and height&lt;/h2&gt;
+&lt;p&gt;The next step is to determine how to maximize the width and height.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;width&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;height&lt;/code&gt; option can be specified using percentage values (&gt;= 0 and &amp;#x3C; 1) or fixed values (&gt;= 1).&lt;/p&gt;
+&lt;p&gt;In other words, we can’t specify the width to have 100% width (unless we calculate the screen width manually).&lt;/p&gt;
+&lt;p&gt;Luckily, telescope provides an easy way to make it happen, even though it’s unclear at first glance.&lt;/p&gt;
+&lt;p&gt;Instead of specifying fixed or percentage values for the &lt;code class=&quot;language-text&quot;&gt;width&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;height&lt;/code&gt;, we can instead specify the padding, so we can just set the padding to 0.&lt;/p&gt;
+&lt;p&gt;See &lt;code class=&quot;language-text&quot;&gt;:h telescope.resolve.resolve_width()&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;nvim-telescope/telescope.nvim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    opts &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      defaults &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        layout_strategy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;horizontal&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        layout_config &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          horizontal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            prompt_position &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;top&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            width &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; padding &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            height &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; padding &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            preview_width &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        sorting_strategy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ascending&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/abd43615a8a251f20614a4167f0a5a0f/29114/2-fullscreen.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABk0lEQVQoz3VS2VbCQAztVyibUNoOtEw3oCu7Asru0Scf1P//i2tm2mpZfLhnMknm5mYSxQ6OiGYfMP09qs0YtVYqUXmI5b0ifGRzewWLL8HMMTo8hKoPUG/6qNV93FU57qu2hOImJ8xfvjEItzA6MQwWZRB2ce8kGAY7BMkR3nCDnjMD66bQWZ5D8QKKE58wXX8S4QZtPYRmRGfIfDER7hGlr5S3Q8+ewMgJ2/p5viScPX9R9QNULfgjOiOM4Pc36BOZ21+Be3NSOZeKinhxKk7yKgnT6Ru61vhKpbyzBNxdwvae0ONzanckixfqym8U1pvCchayokn2ZULbIJseBtGRir5jGO0JBzj+mlpOrgQobaqklnDZgrS1ELb7SN+yg9PPlHJ3cZvw1hDKED5RSBCE6ZamLMgyQmaO/lMo2rqecBm2s4Q7WNG3jGkYaeYvd5ELUCxqReyVRmugakNa2OAmdLFnNAyNVkVA1cOzuMknEopGw+jyBA0Wot5y0VA9gnsFEau3nPws/N7vG70bgVkJfgCtPk5ZWN8oAQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Max Width&quot;
+        title=&quot;Max Width&quot;
+        src=&quot;/blog/static/abd43615a8a251f20614a4167f0a5a0f/fcda8/2-fullscreen.png&quot;
+        srcset=&quot;/blog/static/abd43615a8a251f20614a4167f0a5a0f/12f09/2-fullscreen.png 148w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/e4a3f/2-fullscreen.png 295w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/fcda8/2-fullscreen.png 590w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/efc66/2-fullscreen.png 885w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/c83ae/2-fullscreen.png 1180w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/29114/2-fullscreen.png 1920w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Full screen&lt;/h2&gt;
+&lt;p&gt;The maximized height does not take up the &lt;code class=&quot;language-text&quot;&gt;statusline&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;tabline&lt;/code&gt; space, so it still show up.&lt;/p&gt;
+&lt;p&gt;We can make it cleaner and make the telescope real full screen.&lt;/p&gt;
+&lt;p&gt;There’s no option provided by telescope to do it, but we can always use vim’s auto command.&lt;/p&gt;
+&lt;p&gt;The idea is to hide the &lt;code class=&quot;language-text&quot;&gt;statusline&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;tabline&lt;/code&gt; each time we open telescope.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt; &lt;span class=&quot;token comment&quot;&gt;-- keeps track of current `tabline` and `statusline`, so we can restore it after closing telescope&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; temp_showtabline
+&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; temp_laststatus
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; _G&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;global_telescope_find_pre&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  temp_showtabline &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;showtabline
+  temp_laststatus &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;laststatus
+  vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;showtabline &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+  vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;laststatus &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; _G&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;global_telescope_leave_prompt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;laststatus &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; temp_laststatus
+  vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;showtabline &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; temp_showtabline
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;cmd&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;[[
+  augroup MyAutocmds
+    autocmd!
+    autocmd User TelescopeFindPre lua global_telescope_find_pre()
+    autocmd FileType TelescopePrompt autocmd BufLeave &amp;lt;buffer&gt; lua global_telescope_leave_prompt()
+  augroup END
+]]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/abd43615a8a251f20614a4167f0a5a0f/29114/2-fullscreen.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABk0lEQVQoz3VS2VbCQAztVyibUNoOtEw3oCu7Asru0Scf1P//i2tm2mpZfLhnMknm5mYSxQ6OiGYfMP09qs0YtVYqUXmI5b0ifGRzewWLL8HMMTo8hKoPUG/6qNV93FU57qu2hOImJ8xfvjEItzA6MQwWZRB2ce8kGAY7BMkR3nCDnjMD66bQWZ5D8QKKE58wXX8S4QZtPYRmRGfIfDER7hGlr5S3Q8+ewMgJ2/p5viScPX9R9QNULfgjOiOM4Pc36BOZ21+Be3NSOZeKinhxKk7yKgnT6Ru61vhKpbyzBNxdwvae0ONzanckixfqym8U1pvCchayokn2ZULbIJseBtGRir5jGO0JBzj+mlpOrgQobaqklnDZgrS1ELb7SN+yg9PPlHJ3cZvw1hDKED5RSBCE6ZamLMgyQmaO/lMo2rqecBm2s4Q7WNG3jGkYaeYvd5ELUCxqReyVRmugakNa2OAmdLFnNAyNVkVA1cOzuMknEopGw+jyBA0Wot5y0VA9gnsFEau3nPws/N7vG70bgVkJfgCtPk5ZWN8oAQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Full Screen&quot;
+        title=&quot;Full Screen&quot;
+        src=&quot;/blog/static/abd43615a8a251f20614a4167f0a5a0f/fcda8/2-fullscreen.png&quot;
+        srcset=&quot;/blog/static/abd43615a8a251f20614a4167f0a5a0f/12f09/2-fullscreen.png 148w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/e4a3f/2-fullscreen.png 295w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/fcda8/2-fullscreen.png 590w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/efc66/2-fullscreen.png 885w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/c83ae/2-fullscreen.png 1180w,
+/blog/static/abd43615a8a251f20614a4167f0a5a0f/29114/2-fullscreen.png 1920w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Customize path display&lt;/h2&gt;
+&lt;p&gt;By default, telescope will display full or relative file name with its directory name.&lt;/p&gt;
+&lt;p&gt;It makes it hard to scan the file name that I want to open.&lt;/p&gt;
+&lt;p&gt;I want it to show the file name and its directory name separately.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;filename.ext ~ path/to/parent/directory&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Telescope provide an option to format the path display.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;normalize_path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;gsub&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;\\&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;normalize_cwd&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;normalize_path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;loop&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;cwd&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;..&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;is_subdirectory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cwd&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;cwd&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;lower&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cwd&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;split_filepath&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; normalized_path &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;normalize_path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; normalized_cwd &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;normalize_cwd&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; filename &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; normalized_path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;[^/]+$&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;is_subdirectory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;normalized_cwd&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; normalized_path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; stripped_path &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; normalized_path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;normalized_cwd &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;filename &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stripped_path&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; filename
+  &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; stripped_path &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; normalized_path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;filename &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; stripped_path&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; filename
+  &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;path_display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;_&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; stripped_path&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; filename &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;split_filepath&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; filename &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; stripped_path &lt;span class=&quot;token keyword&quot;&gt;or&lt;/span&gt; stripped_path &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; filename
+  &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;%s ~ %s&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; filename&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; stripped_path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;nvim-telescope/telescope.nvim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    opts &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      defaults &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;--&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;--&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;-- specify the formatter here&lt;/span&gt;
+        path_display &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; path_display&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/1657f8181d9f0604908f21e0e9829b0c/29114/4-path-display.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABm0lEQVQoz22S7XKyMBCFuYq+WtQKhIgKhEIggOLHONqO/ZhpO53p/d/IeZdQLdD+eCZhd9mcs4kh1BvyzRdk8YGJU2EwyjAYKwwnDQPidpzBD49YEq5Xgc0lJnYEcywwNAVuhkv8G/oaI1ZnrLfvKKs3uLMczM06OG6q47E8I87OCO+PmC8rihWUU2C8Jr9iJPkLVpsPjePmsJwMNvvB0qtCnJyRla+Q6hlBtAX3St3QctJOvSGLV5Sbd1T7T32C5cim0XfhZRXRCSJ5JNs7zJZreKSyqe/WkcLnq0IRHzvJ656Uh/cPlD8hCA9keadVX9y0XRkOnVLPgxHuHzYsluofkvQJBc05yZ4Q076eZTOinuU60KevcmpL+GKPtKBLiQ8IxAF+tNdCfjVsf/wo6javGy78Ld3yiRrvyPK2meFfDa8/9hJdFEJxQiQf9JNhvOwceHFUY7DFCrMFFdB7mtoJpnTLfepC7q3B5yutyuFKv4Z2jcObN2lY/gZ8oTBiEuZdiNFUEGELoePmXQBzEnzviVauXm0uwTyF/2DgTl6V6UQrAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Path Display&quot;
+        title=&quot;Path Display&quot;
+        src=&quot;/blog/static/1657f8181d9f0604908f21e0e9829b0c/fcda8/4-path-display.png&quot;
+        srcset=&quot;/blog/static/1657f8181d9f0604908f21e0e9829b0c/12f09/4-path-display.png 148w,
+/blog/static/1657f8181d9f0604908f21e0e9829b0c/e4a3f/4-path-display.png 295w,
+/blog/static/1657f8181d9f0604908f21e0e9829b0c/fcda8/4-path-display.png 590w,
+/blog/static/1657f8181d9f0604908f21e0e9829b0c/efc66/4-path-display.png 885w,
+/blog/static/1657f8181d9f0604908f21e0e9829b0c/c83ae/4-path-display.png 1180w,
+/blog/static/1657f8181d9f0604908f21e0e9829b0c/29114/4-path-display.png 1920w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Neovim terminal]]></title><description><![CDATA[Previously I’ve been using neovim alongside tmux for spinning up quick terminal session. But when I open new tmux pane or window, the layout…]]></description><link>https://yeripratama.com/blog/neovim-terminal/</link><guid isPermaLink="false">https://yeripratama.com/blog/neovim-terminal/</guid><pubDate>Mon, 28 Dec 2020 03:45:12 GMT</pubDate><content:encoded>&lt;p&gt;Previously I’ve been using neovim alongside tmux for spinning up quick terminal session. But when I open new tmux pane or window, the layout of my screen is changed and it is kinda break my state of focus when writing code. I find it more pleasant to open terminal inside neovim directly as it doesn’t change my current focus. I feel that I don’t loose control of the things I’m working on.&lt;/p&gt;
 &lt;p&gt;The basic command to open built-in terminal is &lt;code class=&quot;language-text&quot;&gt;:terminal&lt;/code&gt;, but it just open it on current buffer, which drags my attention away from the code I’m working, which is a no.&lt;/p&gt;
 &lt;p&gt;I want to open new terminal in a new split. I tried to mimic the behavior of vscode built-in terminal, that is to open new terminal at the bottom of the screen.&lt;/p&gt;
 &lt;p&gt;Basically I need to open new split, at the bottom of the screen, and call the terminal command. I also choose to create new command to do the thing.&lt;/p&gt;
