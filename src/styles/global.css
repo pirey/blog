@@ -2,3 +2,7 @@ a {
   text-decoration: none;
   color: #0d8d74;
 }
+
+span.gatsby-resp-image-wrapper {
+  max-width: 100% !important;
+}
