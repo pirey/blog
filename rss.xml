@@ -1,4 +1,202 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Digital Note]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 31 Dec 2023 05:42:45 GMT</lastBuildDate><item><title><![CDATA[Concurrent Async Promises]]></title><description><![CDATA[In TypeScript, we can run multiple async promises concurrently using the
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Digital Note]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 31 Dec 2023 14:05:25 GMT</lastBuildDate><item><title><![CDATA[Customizing nvim lualine]]></title><description><![CDATA[Motivation I’m using folke’s lazyvim and the default lualine setup looks like the following.  I want to have a statusline that is similar to…]]></description><link>https://yeripratama.com/blog/customizing-nvim-lualine/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-nvim-lualine/</guid><pubDate>Sun, 31 Dec 2023 06:41:50 GMT</pubDate><content:encoded>&lt;h2&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I’m using &lt;a href=&quot;https://www.lazyvim.org/&quot;&gt;folke’s lazyvim&lt;/a&gt; and the default lualine setup looks like the following.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 4.72972972972973%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAAsSAAALEgHS3X78AAAAUklEQVQI12OIKpjz39Kv7L+xZ95/54Ds/y6BOWDs6Jv+3947+b+FW9J/bdu4/9aeyf/tvFP+23oBaS8I7eiT/t8zouK/V1T1/7Cc6f9TGrb8BwA1lShzxm8dSQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;default lualine setup&quot;
+        title=&quot;default lualine setup&quot;
+        src=&quot;/blog/static/a3365fafbc9e7609afe44ece66f8dc0d/fcda8/default-lualine.png&quot;
+        srcset=&quot;/blog/static/a3365fafbc9e7609afe44ece66f8dc0d/12f09/default-lualine.png 148w,
+/blog/static/a3365fafbc9e7609afe44ece66f8dc0d/e4a3f/default-lualine.png 295w,
+/blog/static/a3365fafbc9e7609afe44ece66f8dc0d/fcda8/default-lualine.png 590w,
+/blog/static/a3365fafbc9e7609afe44ece66f8dc0d/efc66/default-lualine.png 885w,
+/blog/static/a3365fafbc9e7609afe44ece66f8dc0d/d0143/default-lualine.png 1025w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I want to have a statusline that is similar to that in VS Code.
+It is simple, yet provide useful informations.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;vscode-status-bar.png&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.27027027027027%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAACE4AAAhOAFFljFgAAAArUlEQVQY032Pyw6DIBBF/YvGByKNAx/RRGtao8ZFF11ok258/P8v3A5gjG66OAHOwGUmIMqhM8EkJ8wB/QdyawytBGxWkGsDWbwhqg9kNTCjIy4HhMWAiMk2Z0nvozsnpb9r9/ZtentxoPaBqv5CdStkMztUuyCqJ1weE8LnhGu3IGtn6H7d63HtvekXiGaF4I9Ic6BtkyS3LKMThp3hUQzvaXOUHuve786Oz1k/qeN7g7LHU8UAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;vscode status bar&quot;
+        title=&quot;vscode status bar&quot;
+        src=&quot;/blog/static/4ec4ab411eb5457f88b99f11c51e05bc/fcda8/vscode-status-bar.png&quot;
+        srcset=&quot;/blog/static/4ec4ab411eb5457f88b99f11c51e05bc/12f09/vscode-status-bar.png 148w,
+/blog/static/4ec4ab411eb5457f88b99f11c51e05bc/e4a3f/vscode-status-bar.png 295w,
+/blog/static/4ec4ab411eb5457f88b99f11c51e05bc/fcda8/vscode-status-bar.png 590w,
+/blog/static/4ec4ab411eb5457f88b99f11c51e05bc/efc66/vscode-status-bar.png 885w,
+/blog/static/4ec4ab411eb5457f88b99f11c51e05bc/c83ae/vscode-status-bar.png 1180w,
+/blog/static/4ec4ab411eb5457f88b99f11c51e05bc/e8d8a/vscode-status-bar.png 2349w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Configuration options&lt;/h2&gt;
+&lt;p&gt;The first step is to reset the options.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; colors &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;tokyonight.colors&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;moon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; config &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  options &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;-- Disable sections and component separators&lt;/span&gt;
+    component_separators &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    section_separators &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    theme &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      normal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; c &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      inactive &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; c &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  sections &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;-- these are to remove the defaults&lt;/span&gt;
+    lualine_a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_z &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;-- These will be filled later&lt;/span&gt;
+    lualine_c &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  inactive_sections &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;-- these are to remove the defaults&lt;/span&gt;
+    lualine_a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_z &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_c &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    lualine_x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notice that my setup depends on the &lt;code class=&quot;language-text&quot;&gt;tokyonight&lt;/code&gt; colorscheme, but it can be adjusted accordingly.
+The Idea is to setup a baseline options for lualine.&lt;/p&gt;
+&lt;p&gt;Next, we create a helper function to insert component to the left and right side of the statusline.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;insert_left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;component&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  table&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sections&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lualine_c&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; component&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;insert_right&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;component&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  table&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sections&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lualine_x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; component&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can start using the function to add desired component accordingly.&lt;/p&gt;
+&lt;p&gt;Here’s the components on the left side.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;&lt;span class=&quot;token function&quot;&gt;insert_left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;branch&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  icon &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; bg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; gui &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;bold&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;insert_left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;diff&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  symbols &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; added &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; modified &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; removed &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  diff_color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    added &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;green &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    modified &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;orange &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    removed &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;red &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  cond &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; conditions&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;hide_in_width&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;insert_left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;diagnostics&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  sources &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;nvim_diagnostic&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  symbols &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; error &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; warn &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; info &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  diagnostics_color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    color_error &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;red &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    color_warn &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;yellow &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    color_info &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cyan &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;insert_left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;%=&quot;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And here’s the components on the right side.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;&lt;span class=&quot;token function&quot;&gt;insert_right&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;location&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  color &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; colors&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fg_dark &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  cond &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; conditions&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;buffer_not_empty&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;insert_right&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;encoding&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;insert_right&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;filetype&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Easy enough.&lt;/p&gt;
+&lt;p&gt;And here’s the result.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;the-result.png&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 4.72972972972973%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAAsSAAALEgHS3X78AAAASUlEQVQI12PwDi/47+Ce8t/GI/W/S0jWf3uftP8OQAyiHX3T/lt6pPzXsU/4b+uVCheHYTvv1P9O/ln/nQOy/zsH5vz3iCz7DwAOfyb86LaqcQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;the result&quot;
+        title=&quot;the result&quot;
+        src=&quot;/blog/static/dd5e854245fefe65564367376eef5245/fcda8/the-result.png&quot;
+        srcset=&quot;/blog/static/dd5e854245fefe65564367376eef5245/12f09/the-result.png 148w,
+/blog/static/dd5e854245fefe65564367376eef5245/e4a3f/the-result.png 295w,
+/blog/static/dd5e854245fefe65564367376eef5245/fcda8/the-result.png 590w,
+/blog/static/dd5e854245fefe65564367376eef5245/efc66/the-result.png 885w,
+/blog/static/dd5e854245fefe65564367376eef5245/d0143/the-result.png 1025w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Appendix&lt;/h2&gt;
+&lt;p&gt;Most of neovim statusline setup displays the filename on the statusline.
+I intentionally omit the filename because I personally think it is unnecessary.
+But I do still want to know which file I’m currently working on.&lt;/p&gt;
+&lt;p&gt;The lazyvim’s comes with a plugin called &lt;a href=&quot;https://github.com/akinsho/bufferline.nvim&quot;&gt;bufferline.nvim&lt;/a&gt; to display buffers along with its filename.&lt;/p&gt;
+&lt;p&gt;Additionally, I also use another plugin called &lt;a href=&quot;https://github.com/utilyre/barbecue.nvim&quot;&gt;barbeque.nvim&lt;/a&gt; to display &lt;em&gt;breadcrumb&lt;/em&gt;, inspired by VS Code.&lt;/p&gt;
+&lt;p&gt;And here’s the final result.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;the-final-result.png&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.27027027027026%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsSAAALEgHS3X78AAAChUlEQVQ4y4WSSW/TYBCG8zegpY3jeI13f16y2E6aZumSqhtI9IKQWISqspy4cODQC6UCsRREERIc6ALiN77Mlxhaq0UcXs2nkefxvDNT2j04xd7BMfY/nmL/0w+8OvyFlx9OsPf+CK8//8TBlxO8OTym3DF99510VNCLXLvvvuLp228osWQTrjsPFi7DI7FoBbbbg+V04bhzYH4HrpNBr7Wg6QmpBVUrapxT6mCNTZSc5gYsNUWrsQY/HsEMV+A0lxBlPURpB35jANUkkNWEUmtDUhMI1QgVKUalmkuqoywwWNEqSl5yHZIUwWUD2EGfCjvQtYwKm6Q6JIWKq0GucBLF4Fxuki8LHsxgiYCtTVTlGG4wRM1to+b0YZlzkGsZVLIpaw2I9ENBzIFimIOLGgNpZCWfOhQJaBNQs1JY9hCm0YFIs1EIyLssAEnn3wUg75BxIBXYZFm3U+jeEI5D3VJnQiVAucLGACG3eRmsCEwJSENmbAFOvADT69CG+3DYMgy3SbYTVBXeJe/scrt/gBYHuq0JMAgW4bEhPH8Iy6durTbFLiw6KdPtQtGb/+yuANTCdUg0Q5MKdY1Og7asKjHZZWQ3GMeJ5fC/li2+FJWAMt2RpmaQ1cZ4qzI/Vi2mH4V/53c2x/BC5Jo9A24QrIGAjtpPVumoR7D9BYR+DwHrQqeNy1pKc2zSHOMLqtBCeeRO7GiEUtVZgjhtwLQakFgbspFC5Z2qLVRkfjYZRLIrlB1M03dTUwamc/H3zDUDszMWrl7R6Eq6KLVvPsfa1hO01rfhDB9gcOMxumsPUV/cxtzqDnobjxBS3shuI1m8i/byPWS5+Dvs30E4uI/59R2Mbj3Db1em0s8w4OUDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;the final result&quot;
+        title=&quot;the final result&quot;
+        src=&quot;/blog/static/79643e2ca97191c18228b50fa62fe3c7/fcda8/the-final-result.png&quot;
+        srcset=&quot;/blog/static/79643e2ca97191c18228b50fa62fe3c7/12f09/the-final-result.png 148w,
+/blog/static/79643e2ca97191c18228b50fa62fe3c7/e4a3f/the-final-result.png 295w,
+/blog/static/79643e2ca97191c18228b50fa62fe3c7/fcda8/the-final-result.png 590w,
+/blog/static/79643e2ca97191c18228b50fa62fe3c7/efc66/the-final-result.png 885w,
+/blog/static/79643e2ca97191c18228b50fa62fe3c7/35a31/the-final-result.png 1028w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Find my full neovim configuration in &lt;a href=&quot;https://github.com/pirey/nvim&quot;&gt;the repo&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Concurrent Async Promises]]></title><description><![CDATA[In TypeScript, we can run multiple async promises concurrently using the
  and  function. With  we might lose the results if any
 of the…]]></description><link>https://yeripratama.com/blog/concurrent-async-promises/</link><guid isPermaLink="false">https://yeripratama.com/blog/concurrent-async-promises/</guid><pubDate>Sun, 31 Dec 2023 03:49:58 GMT</pubDate><content:encoded>&lt;p&gt;In TypeScript, we can run multiple async promises concurrently using the
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Promise.all()&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Promise.allSettled()&lt;/code&gt;&lt;/a&gt; function.&lt;/p&gt;
@@ -42,7 +240,7 @@ to get all the results regardless of wheter promise is resolved or rejected.&lt;
 &lt;p&gt;However, when we have many promises, we might face high memory consumption.
 Imagine we have a list of namespaces, then we want to retrieve all users for each of those namespaces.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getUserByNamespace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;namespace/&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;namespace&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/users&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// each namespace might have hundreds if not thousands of users&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;namespace/&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/users&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// each namespace might have hundreds if not thousands of users&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; namespaces &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;namespace1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;namespace2&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;namespace896&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// suppose we have hundreds of namespaces&lt;/span&gt;
