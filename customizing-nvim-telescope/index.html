@@ -276,6 +276,14 @@ vim<span class="token punctuation">.</span><span class="token function">cmd</spa
   </a>
     </span></p>
 <h2>Customize path display</h2>
+<blockquote>
+<p><strong>Update</strong>: telescope.nvim now support this option out of the box (with better highlighting) after this <a href="https://github.com/nvim-telescope/telescope.nvim/commit/a4432dfb9b0b960c4cbc8765a42dc4fe2e029e8f">commit</a>.</p>
+<p>Just need to enable it like so:</p>
+</blockquote>
+<div class="gatsby-highlight" data-language="lua"><pre class="language-lua"><code class="language-lua">path_display <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">"filename_first"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre></div>
+<hr>
 <p>By default, telescope will display full or relative file name with its directory name.</p>
 <p>It makes it hard to scan the file name that I want to open.</p>
 <p>I want it to show the file name and its directory name separately.</p>

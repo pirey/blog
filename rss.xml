@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Digital Note]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 31 Dec 2023 14:05:25 GMT</lastBuildDate><item><title><![CDATA[Customizing nvim lualine]]></title><description><![CDATA[Motivation I’m using folke’s lazyvim and the default lualine setup looks like the following.  I want to have a statusline that is similar to…]]></description><link>https://yeripratama.com/blog/customizing-nvim-lualine/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-nvim-lualine/</guid><pubDate>Sun, 31 Dec 2023 06:41:50 GMT</pubDate><content:encoded>&lt;h2&gt;Motivation&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yeri's Digital Note]]></title><description><![CDATA[Yeri's interpretations on various things.]]></description><link>https://yeripratama.com/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Apr 2024 15:23:12 GMT</lastBuildDate><item><title><![CDATA[Customizing nvim lualine]]></title><description><![CDATA[Motivation I’m using folke’s lazyvim and the default lualine setup looks like the following.  I want to have a statusline that is similar to…]]></description><link>https://yeripratama.com/blog/customizing-nvim-lualine/</link><guid isPermaLink="false">https://yeripratama.com/blog/customizing-nvim-lualine/</guid><pubDate>Sun, 31 Dec 2023 06:41:50 GMT</pubDate><content:encoded>&lt;h2&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I’m using &lt;a href=&quot;https://www.lazyvim.org/&quot;&gt;folke’s lazyvim&lt;/a&gt; and the default lualine setup looks like the following.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;&quot;&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -566,6 +566,14 @@ vim&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;Customize path display&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: telescope.nvim now support this option out of the box (with better highlighting) after this &lt;a href=&quot;https://github.com/nvim-telescope/telescope.nvim/commit/a4432dfb9b0b960c4cbc8765a42dc4fe2e029e8f&quot;&gt;commit&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Just need to enable it like so:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;lua&quot;&gt;&lt;pre class=&quot;language-lua&quot;&gt;&lt;code class=&quot;language-lua&quot;&gt;path_display &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;filename_first&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
 &lt;p&gt;By default, telescope will display full or relative file name with its directory name.&lt;/p&gt;
 &lt;p&gt;It makes it hard to scan the file name that I want to open.&lt;/p&gt;
 &lt;p&gt;I want it to show the file name and its directory name separately.&lt;/p&gt;
