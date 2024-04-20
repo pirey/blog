@@ -1,7 +1,7 @@
 ---
 title: Customizing telescope.nvim
-date: "2023-07-30T15:20:15+0700"
-description: "How I customize telescope.nvim plugin"
+date: '2023-07-30T15:20:15+0700'
+description: 'How I customize telescope.nvim plugin'
 ---
 
 ## Prerequisites
@@ -121,6 +121,7 @@ return {
   },
 }
 ```
+
 <br/>
 
 ![Max Width](./2-fullscreen.png)
@@ -160,11 +161,24 @@ vim.cmd([[
   augroup END
 ]])
 ```
+
 <br/>
 
 ![Full Screen](./2-fullscreen.png)
 
 ## Customize path display
+
+> **Update**: telescope.nvim now support this option out of the box (with better highlighting) after this [commit](https://github.com/nvim-telescope/telescope.nvim/commit/a4432dfb9b0b960c4cbc8765a42dc4fe2e029e8f).
+>
+> Just need to enable it like so:
+
+```lua
+path_display = {
+  "filename_first",
+},
+```
+
+---
 
 By default, telescope will display full or relative file name with its directory name.
 
@@ -177,7 +191,6 @@ filename.ext ~ path/to/parent/directory
 ```
 
 Telescope provide an option to format the path display.
-
 
 ```lua
 local function normalize_path(path)
@@ -228,6 +241,7 @@ return {
   },
 }
 ```
+
 <br/>
 
 ![Path Display](./4-path-display.png)
